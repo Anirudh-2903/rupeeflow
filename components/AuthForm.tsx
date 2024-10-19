@@ -1,28 +1,22 @@
 "use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState } from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
 
-import { z } from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+    Form
+} from "@/components/ui/form";
 import { authFormSchema } from '@/lib/utils';
-import CustomInput from './CustomInput';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import CustomInput from './CustomInput';
+import { signIn, signUp } from '@/lib/actions/user.actions';
 
 
 const AuthForm = ({ type }: { type: string }) => {
@@ -58,8 +52,8 @@ const AuthForm = ({ type }: { type: string }) => {
             }
 
             if (type === 'sign-up') {
-                //const newUser = await signUp(data);
-                //setUser(newUser);
+                const newUser = await signUp(data);
+                setUser(newUser);
             }
 
         } catch (error) {
