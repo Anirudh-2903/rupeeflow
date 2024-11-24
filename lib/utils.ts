@@ -199,13 +199,13 @@ export const authFormSchema = (type:string) => z.object({
   email: z.string().email(),
   password: z.string().min(8),
   //sign-up
-  firstName:type === 'signin' ? z.string().optional() : z.string().min(3),
-  lastName:type === 'signin' ? z.string().optional() : z.string().min(3),
-  address1:type === 'signin' ? z.string().optional() : z.string().max(50),
-  city:type === 'signin' ? z.string().optional() : z.string().max(50).min(2),
-  state:type === 'signin' ? z.string().optional() : z.string().min(3),
-  postalCode:type === 'signin' ? z.string().optional() : z.string().max(6).min(6),
-  dob:type === 'signin' ? z.string().optional() : z.string().min(3),
-  pan:type === 'signin' ? z.string().optional() : z.string().min(10).max(10),
+  firstName:type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  lastName:type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  address1:type === 'sign-in' ? z.string().optional() : z.string().max(50),
+  city:type === 'sign-in' ? z.string().optional() : z.string().max(50).min(2),
+  state:type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  postalCode:type === 'sign-in' ? z.string().optional() : z.string().max(6).min(6),
+  dob:type === 'sign-in' ? z.string().optional() : z.string().min(3),
+  pan:type === 'sign-in' ? z.string().optional() : z.string().min(10).max(10),
 
 })

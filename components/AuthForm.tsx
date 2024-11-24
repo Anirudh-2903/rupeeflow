@@ -41,19 +41,20 @@ const AuthForm = ({ type }: { type: string }) => {
             // Sign up with Appwrite & create Plaid token
 
             if (type === 'sign-in') {
-                // const response = await signIn({
-                //     email: data.email,
-                //     password: data.password,
-                // })
+                const response = await signIn({
+                    email: data.email,
+                    password: data.password,
+                })
 
-                // if(response) {
-                //     router.push('/');
-                // }
+                if(response) {
+                    router.push('/');
+                }
             }
 
             if (type === 'sign-up') {
                 const newUser = await signUp(data);
                 setUser(newUser);
+                router.push('/');
             }
 
         } catch (error) {
@@ -156,7 +157,8 @@ const AuthForm = ({ type }: { type: string }) => {
                                             Loading...
                                         </>
                                     ) : type === 'sign-in'
-                                        ? 'Sign In' : 'Sign Up'}
+                                        ? 'Sign In' : 'Sign Up'
+                                    }
                                 </Button>
                             </div>
                         </form>
